@@ -440,7 +440,28 @@
 
 <h3 id="3-2-算法的实现"><a href="#3-2-算法的实现" class="headerlink" title="3.2 算法的实现:"></a>3.2 算法的实现:</h3><p><br>        &emsp;&emsp;1. 算法所用数据结构选型<br><br>            &emsp;&emsp;&emsp;所用矩阵： n*2矩阵<br><br>            &emsp;&emsp;&emsp;选择原因：方便hashMap的存取。<br><br>            &emsp;&emsp;&emsp;存放矩阵内信息所用数据结构： hashMap<br><br>            &emsp;&emsp;&emsp;选择原因：<br><br>            &emsp;&emsp;&emsp;&emsp;letCode中有一道返回两数之和的算法题，通过条件遍历查询数组即可获得完成，但是官方推荐的是<br>&emsp;&emsp;&emsp;&emsp;用hashMap存取并遍历，经过letCode上的大量数据测试，得出在这种情况下hashMap的执行效率<br>&emsp;&emsp;&emsp;&emsp;更高，所用时间更少，通过分析两算法，得知都要<br>            &emsp;&emsp;&emsp;&emsp;按条件查询矩阵内容，所以对于这种规模的数据和相似的情况，我们采用hashMap来存取数据。<br><br>            &emsp;&emsp;&emsp;存放无向图结点的数据结构： Set集合<br><br>            &emsp;&emsp;&emsp;选择原因：集合具有元素无序不重复的特性，所以用来存放结点可以防止其重复出现。<br><br>            &emsp;&emsp;&emsp;路径返回结果所用数据结构： ArrayList<br><br>            &emsp;&emsp;&emsp;选择原因：ArrayList具有有序便于插入删除的特点，方便对结果进行后续的整理和修改。<br><br>            &emsp;&emsp;2. 算法的具体实现<br><br>            <img src="/images/project/back1.png" alt="" style=" margin-left: 50px;"><br>            &emsp;&emsp;&emsp;&emsp;Prime算法部分主要由PrimeServiceImpl实现<br>            &emsp;&emsp;&emsp;&emsp;kruskal算法部分主要由kruskalServiceImpl实现<br>            &emsp;&emsp;&emsp;&emsp;Util层的 CaculateUtil.java :提取并封装了PrimeServiceImpl 和 KruskalServiceImpl算法用到的方法<br>            &emsp;&emsp;&emsp;2.1&emsp; 实现Prime算法的基本思想:<br>            &emsp;&emsp;&emsp;&emsp;&emsp;1. 清空生成树，任取一个顶点加入生成树<br>            &emsp;&emsp;&emsp;&emsp;&emsp;2. 在那些一个端点在生成树里，另一个端点不在生成树里的边中，选取一条权最小的边，将它和另一<br>            &emsp;&emsp;&emsp; &emsp;&emsp;个端点加进生成树<br>            &emsp;&emsp;&emsp;&emsp;&emsp;3. 重复步骤2，直到所有的顶点都进入了生成树为止，此时的生成树就是最小生成树<br>            &emsp;&emsp;&emsp;2.2&emsp; Prime算法适用性和时间复杂度:<br>            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Prime算法求最小生成树时候，和边数无关，只和定点的数量相关，所以适合求稠密网<br>             &emsp;<span>的最小生成树，时间复杂度为O(n×n)</span><br>            &emsp;&emsp;&emsp;2.3&emsp; 实现Kruskal算法的基本思想:<br>            &emsp;&emsp;&emsp;&emsp;&emsp;1.首先将G的n个顶点看成n个孤立的连通分支（n个孤立点）并将所有的边按权从小大排序。<br>            &emsp;&emsp;&emsp;&emsp;&emsp;2.按照边权值递增顺序，如果加入边后存在环则这条边不加，直到形成连通图<br>            &emsp;&emsp;&emsp;2.4&emsp; Kruskal算法适用性和时间复杂度:<br>            &emsp;&emsp;&emsp;&emsp;&emsp;Kruskal算法是对图的边进行访问，所以Kruskal算法的时间复杂度只和边又关系，其时间<br>            &emsp;&emsp;&emsp;&emsp;&emsp;复杂度为O（eloge）<br></p>            
 
-<h2 id="4-emsp-结果演示"><a href="#4-emsp-结果演示" class="headerlink" title="4.&emsp;结果演示"></a><span style="color:red;text-shadow:5px 5px 5px #ccc ">4.&emsp;结果演示</span></h2><p>哔哔哩哔哩视频地址: <a href="https://www.bilibili.com/video/av40697433/" target="_blank" rel="noopener">https://www.bilibili.com/video/av40697433/</a><br>或<br>腾讯云对象存储COS视频地址: <a href="https://video-1254265973.cos.ap-beijing.myqcloud.com/arithmetic.mp4" target="_blank" rel="noopener">https://video-1254265973.cos.ap-beijing.myqcloud.com/arithmetic.mp4</a></p>
+<h2 id="4-emsp-结果演示"><a href="#4-emsp-结果演示" class="headerlink" title="4.&emsp;结果演示"></a><span style="color:red;text-shadow:5px 5px 5px #ccc ">4.&emsp;结果演示</span></h2><h3 id="4-1-项目主要界面展示"><a href="#4-1-项目主要界面展示" class="headerlink" title="4.1 项目主要界面展示"></a>4.1 项目主要界面展示</h3><blockquote>
+<p>首页</p>
+</blockquote>
+<p><img src="/images/project/arithmetic/index.png" alt="" style=" "></p>
+<blockquote>
+<p>节点信息展示</p>
+</blockquote>
+<p><img src="/images/project/arithmetic/nodeMsg.png" alt="" style=" "></p>
+<blockquote>
+<p>Prime算法界面</p>
+</blockquote>
+<p><img src="/images/project/arithmetic/prime.png" alt="" style=" "></p>
+<blockquote>
+<p>Kruskal算法界面</p>
+</blockquote>
+<p><img src="/images/project/arithmetic/kruskal.png" alt="" style=" "></p>
+<blockquote>
+<p>最终生成的路线图</p>
+</blockquote>
+<p><img src="/images/project/arithmetic/map.png" alt="" style=" "></p>
+<hr>
+<h3 id="4-2-项目运行演示"><a href="#4-2-项目运行演示" class="headerlink" title="4.2 项目运行演示"></a>4.2 项目运行演示</h3><p>哔哔哩哔哩视频地址: <a href="https://www.bilibili.com/video/av40697433/" target="_blank" rel="noopener">https://www.bilibili.com/video/av40697433/</a><br>或<br>腾讯云对象存储COS视频地址: <a href="https://video-1254265973.cos.ap-beijing.myqcloud.com/arithmetic.mp4" target="_blank" rel="noopener">https://video-1254265973.cos.ap-beijing.myqcloud.com/arithmetic.mp4</a></p>
 <h2 id="5-emsp-项目源代码"><a href="#5-emsp-项目源代码" class="headerlink" title="5.&emsp;项目源代码"></a><span style="color:black;text-shadow:5px 5px 5px #ccc ">5.&emsp;项目源代码</span></h2><p>百度网盘链接: 链接：<a href="https://pan.baidu.com/s/1FQU3OHlm9E7IU9_0DsJphQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1FQU3OHlm9E7IU9_0DsJphQ</a><br>提取码：qi9m </p>
 
             </div>
